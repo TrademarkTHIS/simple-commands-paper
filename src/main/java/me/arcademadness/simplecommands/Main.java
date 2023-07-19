@@ -6,6 +6,7 @@ public final class Main extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        this.getCommand("bed").setExecutor(new BedCommand());
         // Plugin startup logic
 
     }

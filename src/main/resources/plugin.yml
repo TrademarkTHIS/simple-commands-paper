@@ -1,6 +1,10 @@
-name: Simple Commands
+name: SimpleCommands
 version: '${project.version}'
 main: me.arcademadness.simplecommands.Main
 api-version: 1.20
 authors: [ Jake, Tetra ]
 description: Simple commands for simple people.
+commands:
+  bed:
+    description: Teleports you to your bed if set.
+    usage: /<command>
