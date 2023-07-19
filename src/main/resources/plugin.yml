@@ -1,0 +1,6 @@
+name: Simple Commands
+version: '${project.version}'
+main: me.arcademadness.simplecommands.Main
+api-version: 1.20
+authors: [ Jake, Tetra ]
+description: Simple commands for simple people.
