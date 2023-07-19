@@ -17,6 +17,7 @@ public final class Main extends JavaPlugin {
         this.getCommand("bed").setExecutor(new BedCommand());
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvents(new PlayerDamageEvent(), this);
+        pm.registerEvents(new ChatColors(), this);
         // Plugin startup logic
 
     }
