@@ -14,7 +14,6 @@ public class PlayerDamageEvent implements Listener {
         if (event.getEntity() instanceof Player) {
             Player p = (Player) event.getEntity();
             Main.setLastHit(p, Instant.now());
-            p.sendMessage("SUCK YOURSELF! " + Instant.now().toString());
         }
     }
 }
