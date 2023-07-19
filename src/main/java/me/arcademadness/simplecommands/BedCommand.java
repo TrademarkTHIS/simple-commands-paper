@@ -15,13 +15,19 @@ public class BedCommand implements CommandExecutor  {
         if(sender instanceof Player) {
             Player p = (Player) sender;
             Instant i = Main.getLastHit(p);
+            if (p.getBedSpawnLocation() == null) {
+                p.sendMessage("You've gotta find a bed bro.");
+                return true;
+            }
             if (i != null) {
-                if (Duration.between(i, Instant.now()).toMillis() < 5000) return false;
-                if (p.getBedSpawnLocation() == null) return false;
-            };
+                if (Duration.between(i, Instant.now()).toMillis() < 5000) {
+                    p.sendMessage("You're injured! Wait a few seconds bro.");
+                    return true;
+                }
+            }
             p.teleport(p.getBedSpawnLocation());
             return true;
-            }
+        }
         return false;
     }
 }
