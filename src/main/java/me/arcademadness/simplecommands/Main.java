@@ -1,6 +1,5 @@
 package me.arcademadness.simplecommands;
 
-import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -12,19 +11,19 @@ public final class Main extends JavaPlugin {
 
     static HashMap<Player, Instant> lastHit = new HashMap<>();
 
+
     @Override
     public void onEnable() {
+
         this.getCommand("bed").setExecutor(new BedCommand());
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvents(new PlayerDamageEvent(), this);
         pm.registerEvents(new ChatColors(), this);
-        // Plugin startup logic
-
+        pm.registerEvents(new ReverseEnchant(), this);
     }
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
     }
 
     static public void setLastHit(Player p, Instant i) {
