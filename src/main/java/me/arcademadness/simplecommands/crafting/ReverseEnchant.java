@@ -1,5 +1,7 @@
-package me.arcademadness.simplecommands;
+package me.arcademadness.simplecommands.crafting;
 
+import io.papermc.paper.enchantments.EnchantmentRarity;
+import me.arcademadness.simplecommands.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
@@ -33,14 +35,25 @@ public class ReverseEnchant implements Listener {
             ItemStack newBook = new ItemStack(Material.ENCHANTED_BOOK, 1);
             if (!(newBook.getItemMeta() instanceof EnchantmentStorageMeta)) return;
             EnchantmentStorageMeta newBookMeta = (EnchantmentStorageMeta) newBook.getItemMeta();
+            int cost=0;
 
             Map<Enchantment, Integer> newEnchants = event.getInventory().getFirstItem().getItemMeta().getEnchants();
             for (Enchantment e : newEnchants.keySet()) {
+                int iCost = 0;
+                if (e.getRarity() == EnchantmentRarity.COMMON)
+                    iCost = 1;
+                if (e.getRarity() == EnchantmentRarity.RARE)
+                    iCost = 2;
+                if (e.getRarity() == EnchantmentRarity.UNCOMMON)
+                    iCost = 3;
+                if (e.getRarity() == EnchantmentRarity.VERY_RARE)
+                    iCost = 4;
                 newBookMeta.addStoredEnchant(e, newEnchants.get(e), false);
+                cost += iCost;
             }
             newBook.setItemMeta(newBookMeta);
 
-            event.getInventory().setRepairCost(0);
+            event.getInventory().setRepairCost(cost);
             event.setResult(newBook);
 
             List<ItemStack> anvilItems = new ArrayList<>();

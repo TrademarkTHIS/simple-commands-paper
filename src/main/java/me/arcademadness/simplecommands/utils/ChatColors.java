@@ -1,7 +1,5 @@
-package me.arcademadness.simplecommands;
+package me.arcademadness.simplecommands.utils;
 
-import io.papermc.paper.event.player.AsyncChatEvent;
-import net.kyori.adventure.text.TextReplacementConfig;
 import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

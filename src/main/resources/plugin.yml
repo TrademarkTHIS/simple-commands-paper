@@ -6,5 +6,12 @@ authors: [ Jake, Tetra ]
 description: Simple commands for simple people.
 commands:
   bed:
-    description: Teleports you to your bed if set.
+    description: Teleports you to your bed outside of combat.
+    usage: /<command>
+    aliases: home
+  tpa:
+    description: Request teleportation to another player.
+    usage: /<command> [<player>]
+  tpaccept:
+    description: If you have any incoming requests, the requester is instantly teleported to you.
     usage: /<command>
